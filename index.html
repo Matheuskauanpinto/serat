@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Quer Namorar Comigo?</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 100px;
+        }
+
+        button {
+            background-color: white;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quer namorar comigo?</h1>
+    <button id="sim">Sim</button>
+    <button id="nao">Não</button>
+    <div id="mensagem" style="display: none;">Obrigado!</div>
+
+    <form action="process.php" method="post">
+        <button type="submit" name="resposta" value="sim">Sim</button>
+        <button type="submit" name="resposta" value="nao">Não</button>
+    </form>
+
+    <script>
+        const simButton = document.getElementById("sim");
+        const naoButton = document.getElementById("nao");
+        const mensagemDiv = document.getElementById("mensagem");
+
+        simButton.addEventListener("click", () => {
+            mensagemDiv.style.display = "block";
+            simButton.style.display = "none";
+            naoButton.style.display = "none";
+        });
+
+        naoButton.addEventListener("click", () => {
+            naoButton.style.position = "absolute";
+            naoButton.style.left = Math.random() * (window.innerWidth - 100) + "px";
+            naoButton.style.top = Math.random() * (window.innerHeight - 100) + "px";
+        });
+    </script>
+</body>
+</html>
